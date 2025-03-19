@@ -3,6 +3,37 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: "Smythe", sans-serif;
+  max-width: 600px;
+  border: 1px solid black;
+}
+
+/* Typography */
+h1 {
+  font-weight: 400;
+  font-size: 2.4375rem;
+  color: #fff;
+  margin: 0;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* Header */
+
+header {
+  background-image: url(./images/burgerHero.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 46px;
+}
+
+.diner-motto {
+  font-size: 1.40125rem;
+  margin-top: 5px;
+  /* line-height: 13.8px; */
 }
