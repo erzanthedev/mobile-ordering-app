@@ -12,7 +12,7 @@ body {
 /* Typography */
 h1 {
   font-weight: 400;
-  font-size: 2.4375rem;
+  font-size: 2.4rem;
   color: #fff;
   margin: 0;
 }
@@ -33,7 +33,38 @@ header {
 }
 
 .diner-motto {
-  font-size: 1.40125rem;
+  font-size: 1.4rem;
   margin-top: 5px;
-  /* line-height: 13.8px; */
+}
+
+/* Main */
+
+main {
+  padding: 46px;
+}
+
+.meal {
+  /* border-bottom: 1px solid lightgray; */
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.meal-ingredients {
+  color: #8b8b8b;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.fa-plus {
+  width: 50;
+  height: 50;
+  border: 1px solid #dedede;
+  padding: 20px;
+  border-radius: 50%;
+  /* text-align: center; */
+}
+
+.push-right {
+  margin-left: auto;
 }
