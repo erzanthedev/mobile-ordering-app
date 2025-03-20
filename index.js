@@ -8,7 +8,7 @@ const getMealsHtml = () => {
       return `
       <div class="meal">
         <div class="meal-content">
-          <i class="meal-emoji">${meal.emoji}</i>
+          <span class="meal-emoji">${meal.emoji}</span>
           <div class="meal-info">
             <h2 class="meal-title">${meal.name}</h2>
             <p class="meal-ingredients">pepperoni,mushrom,mozarella</p>
