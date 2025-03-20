@@ -81,6 +81,10 @@ header {
   cursor: pointer;
 }
 
+.add-meal-btn:active {
+  transform: translateY(1.5px);
+}
+
 .fa-plus {
   color: #3c3c3c;
   font-weight: 200;
