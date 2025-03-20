@@ -24,14 +24,6 @@ p {
   color: #fff;
 }
 
-button {
-  border: 1.5px solid #dedede;
-  background-color: #fff;
-  border-radius: 50%;
-  padding: 15px;
-  cursor: pointer;
-}
-
 /* Header */
 
 header {
@@ -79,6 +71,14 @@ header {
   font-weight: 400;
   font-size: 1rem;
   margin-block: 7px;
+}
+
+.add-meal-btn {
+  border: 1.5px solid #dedede;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
 }
 
 .fa-plus {
