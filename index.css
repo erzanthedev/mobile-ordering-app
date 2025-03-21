@@ -6,7 +6,7 @@ body {
   margin: 0 auto;
   font-family: "Smythe", sans-serif;
   max-width: 600px;
-  border: 1px solid black;
+  background: whitesmoke;
 }
 
 /* Typography */
@@ -39,9 +39,9 @@ header {
 }
 
 /* Menu */
-
 .menu {
   padding: 22px 46px;
+  background-color: white;
 }
 
 .meal {
@@ -96,6 +96,86 @@ header {
   font-size: 1rem;
 }
 
+/* Checkout */
+
+.checkout {
+  text-align: center;
+}
+
+.checkout-title {
+  font-weight: 400;
+  font-size: 1.75rem;
+  margin: 45px 0 64px;
+}
+
+.items-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-name {
+  color: #000000;
+  font-weight: 400;
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.item-price {
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.total {
+  border-top: 2px solid #393333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 31px;
+}
+
+.total-name {
+  color: #000000;
+}
+
+.complete-order-btn {
+  font-family: "Verdana", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0px 1px 2px 0px #0000000d;
+  background-color: #16db99;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  width: 100%;
+  padding-block: 18px;
+  margin: 53px 0 32px;
+}
+
+.complete-order-btn:hover {
+  filter: brightness(110%);
+  color: #000;
+}
+
+.complete-order-btn:active {
+  transform: translateY(1.5px);
+}
+
+/* Utility */
 .push-right {
   margin-left: auto;
+}
+
+.remove {
+  font-family: "Verdana", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #bbbbbb;
 }

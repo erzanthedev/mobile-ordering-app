@@ -25,7 +25,7 @@ const getMealsHtml = () => {
 };
 
 const render = () => {
-  document.getElementById("menu").innerHTML = getMealsHtml();
+  document.getElementById("menu").innerHTML += getMealsHtml();
 };
 
-render();
+// render();
