@@ -142,7 +142,15 @@ header {
 }
 
 .total-name {
-  color: #000000;
+  color: #0e0e0e;
+  font-weight: 400;
+  font-size: 1.75rem;
+  margin-bottom: 0;
+}
+
+.total-price {
+  font-weight: 400;
+  font-size: 1.25rem;
 }
 
 .complete-order-btn {
