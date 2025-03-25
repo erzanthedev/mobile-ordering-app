@@ -1,7 +1,8 @@
 import menuArray from "./data.js";
 
-console.log(menuArray);
+let ordersArr = [];
 
+// Utility Functions
 const getMealsHtml = () => {
   return menuArray
     .map((meal) => {
@@ -14,8 +15,8 @@ const getMealsHtml = () => {
             <p class="meal-ingredients">pepperoni,mushrom,mozarella</p>
             <span class="meal-price">$${meal.price}</span>
           </div>
-          <button class="add-meal-btn push-right">
-            <i class="fa-solid fa-plus"></i>
+          <button class="add-meal-btn push-right" data-add-item=${meal.id}>
+            +
           </button>
         </div>
       </div>
@@ -24,8 +25,43 @@ const getMealsHtml = () => {
     .join("");
 };
 
+// const getCheckoutHtml = () => {
+//   return ordersArr.map((order) => {
+//     return `
+//             <div class="item">
+//               <p class="item-name">${order.name}</p>
+//               <span class="remove">remove</span>
+//               <span class="item-price push-right">${order.price}</span>
+//             </div>
+//
+// `;
+//   });
+// };
+
+const showCheckout = () => {
+  document.getElementById("checkout").classList.remove("hidden");
+};
+
 const render = () => {
   document.getElementById("menu").innerHTML += getMealsHtml();
 };
 
-// render();
+// Event Handlers
+const handleAddItemClick = (itemId) => {
+  const targetMealObject = menuArray.filter(
+    (meal) => meal.id === Number(itemId),
+  )[0];
+
+  ordersArr.push(targetMealObject);
+  showCheckout();
+  console.log(ordersArr);
+};
+
+// Event Listeners
+document.addEventListener("click", (e) => {
+  if (e.target.dataset.addItem) {
+    handleAddItemClick(e.target.dataset.addItem);
+  }
+});
+
+render();
