@@ -25,21 +25,24 @@ const getMealsHtml = () => {
     .join("");
 };
 
-// const getCheckoutHtml = () => {
-//   return ordersArr.map((order) => {
-//     return `
-//             <div class="item">
-//               <p class="item-name">${order.name}</p>
-//               <span class="remove">remove</span>
-//               <span class="item-price push-right">${order.price}</span>
-//             </div>
-//
-// `;
-//   });
-// };
+const getCheckoutHtml = () => {
+  return ordersArr
+    .map((order) => {
+      return `
+            <div class="item">
+              <p class="item-name">${order.name}</p>
+              <span class="remove">remove</span>
+              <span class="item-price push-right">$${order.price}</span>
+            </div>
+
+`;
+    })
+    .join("");
+};
 
 const showCheckout = () => {
   document.getElementById("checkout").classList.remove("hidden");
+  document.getElementById("items-list").innerHTML = getCheckoutHtml();
 };
 
 const render = () => {
@@ -54,7 +57,6 @@ const handleAddItemClick = (itemId) => {
 
   ordersArr.push(targetMealObject);
   showCheckout();
-  console.log(ordersArr);
 };
 
 // Event Listeners
