@@ -51,19 +51,18 @@ const render = () => {
 
 // Event Handlers
 const handleAddItemClick = (itemId) => {
-  const targetMealObject = menuArray.filter(
-    (meal) => meal.id === Number(itemId),
-  )[0];
+  const targetMealObj = menuArray.find((meal) => meal.id === Number(itemId));
 
-  const doesMealAlreadyExist = ordersArr.some(
-    (order) => order.id === targetMealObject.id,
+  const existingOrder = ordersArr.find(
+    (order) => order.id === targetMealObj.id,
   );
 
-  if (!doesMealAlreadyExist) {
-    ordersArr.push(targetMealObject);
+  if (existingOrder) {
+    existingOrder.price *= 2;
   } else {
-    targetMealObject.price += targetMealObject.price;
+    ordersArr.push({ ...targetMealObj });
   }
+
   showCheckout();
 };
 
