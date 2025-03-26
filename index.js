@@ -6,16 +6,17 @@ let ordersArr = [];
 const getMealsHtml = () => {
   return menuArray
     .map((meal) => {
+      const { emoji, name, ingredients, price, id } = meal;
       return `
       <div class="meal">
         <div class="meal-content">
-          <span class="meal-emoji">${meal.emoji}</span>
+          <span class="meal-emoji">${emoji}</span>
           <div class="meal-info">
-            <h2 class="meal-title">${meal.name}</h2>
-            <p class="meal-ingredients">pepperoni,mushrom,mozarella</p>
-            <span class="meal-price">$${meal.price}</span>
+            <h2 class="meal-title">${name}</h2>
+            <p class="meal-ingredients">${ingredients}</p>
+            <span class="meal-price">$${price}</span>
           </div>
-          <button class="add-meal-btn push-right" data-add-item=${meal.id}>
+          <button class="add-meal-btn push-right" data-add-item=${id}>
             +
           </button>
         </div>
@@ -28,11 +29,12 @@ const getMealsHtml = () => {
 const getCheckoutHtml = () => {
   return ordersArr
     .map((order) => {
+      const { name, id, price } = order;
       return `
             <div class="item">
-              <p class="item-name">${order.name}</p>
-              <span class="remove" data-remove=${order.id}>remove</span>
-              <span class="item-price push-right">$${order.price}</span>
+              <p class="item-name">${name}</p>
+              <span class="remove" data-remove=${id}>remove</span>
+              <span class="item-price push-right">$${price}</span>
             </div>
 
 `;
