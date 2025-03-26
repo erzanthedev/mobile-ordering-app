@@ -55,7 +55,15 @@ const handleAddItemClick = (itemId) => {
     (meal) => meal.id === Number(itemId),
   )[0];
 
-  ordersArr.push(targetMealObject);
+  const doesMealAlreadyExist = ordersArr.some(
+    (order) => order.id === targetMealObject.id,
+  );
+
+  if (!doesMealAlreadyExist) {
+    ordersArr.push(targetMealObject);
+  } else {
+    targetMealObject.price += targetMealObject.price;
+  }
   showCheckout();
 };
 
