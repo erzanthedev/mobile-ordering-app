@@ -63,10 +63,10 @@ const handleAddItemClick = (itemId) => {
 
   const existingOrder = ordersArr.find(({ id }) => id === targetMeal.id);
 
-  if (existingOrder) {
-    existingOrder.price *= 2;
-  } else {
+  if (!existingOrder) {
     ordersArr.push({ ...targetMeal });
+  } else {
+    existingOrder.price *= 2;
   }
 
   getTotalPrice();
@@ -75,7 +75,7 @@ const handleAddItemClick = (itemId) => {
 
 const handleRemoveClick = (itemId) => {
   const targetMealIndex = ordersArr.findIndex(
-    (order) => order.id === Number(itemId),
+    ({ id }) => id === Number(itemId),
   );
 
   if (targetMealIndex > -1) {
