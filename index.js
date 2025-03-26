@@ -51,11 +51,9 @@ const render = () => {
 
 // Event Handlers
 const handleAddItemClick = (itemId) => {
-  const targetMealObj = menuArray.find((meal) => meal.id === Number(itemId));
+  const targetMealObj = menuArray.find(({ id }) => id === Number(itemId));
 
-  const existingOrder = ordersArr.find(
-    (order) => order.id === targetMealObj.id,
-  );
+  const existingOrder = ordersArr.find(({ id }) => id === targetMealObj.id);
 
   if (existingOrder) {
     existingOrder.price *= 2;
