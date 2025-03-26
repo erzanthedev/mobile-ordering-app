@@ -31,7 +31,7 @@ const getCheckoutHtml = () => {
       return `
             <div class="item">
               <p class="item-name">${order.name}</p>
-              <span class="remove">remove</span>
+              <span class="remove" data-remove=${order.id}>remove</span>
               <span class="item-price push-right">$${order.price}</span>
             </div>
 
@@ -40,9 +40,17 @@ const getCheckoutHtml = () => {
     .join("");
 };
 
-const showCheckout = () => {
+const renderCheckout = () => {
   document.getElementById("checkout").classList.remove("hidden");
   document.getElementById("items-list").innerHTML = getCheckoutHtml();
+};
+
+const getTotalPrice = () => {
+  const totalAmount = ordersArr.reduce((total, currentObj) => {
+    return total + currentObj.price;
+  }, 0);
+
+  document.getElementById("total-price").innerHTML = `$${totalAmount}`;
 };
 
 const render = () => {
@@ -51,23 +59,39 @@ const render = () => {
 
 // Event Handlers
 const handleAddItemClick = (itemId) => {
-  const targetMealObj = menuArray.find(({ id }) => id === Number(itemId));
+  const targetMeal = menuArray.find(({ id }) => id === Number(itemId));
 
-  const existingOrder = ordersArr.find(({ id }) => id === targetMealObj.id);
+  const existingOrder = ordersArr.find(({ id }) => id === targetMeal.id);
 
   if (existingOrder) {
     existingOrder.price *= 2;
   } else {
-    ordersArr.push({ ...targetMealObj });
+    ordersArr.push({ ...targetMeal });
   }
 
-  showCheckout();
+  getTotalPrice();
+  renderCheckout();
+};
+
+const handleRemoveClick = (itemId) => {
+  const targetMealIndex = ordersArr.findIndex(
+    (order) => order.id === Number(itemId),
+  );
+
+  if (targetMealIndex > -1) {
+    ordersArr.splice(targetMealIndex, 1);
+  }
+
+  getTotalPrice();
+  renderCheckout();
 };
 
 // Event Listeners
 document.addEventListener("click", (e) => {
   if (e.target.dataset.addItem) {
     handleAddItemClick(e.target.dataset.addItem);
+  } else if (e.target.dataset.remove) {
+    handleRemoveClick(e.target.dataset.remove);
   }
 });
 
