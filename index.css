@@ -7,6 +7,7 @@ body {
   font-family: "Smythe", sans-serif;
   max-width: 600px;
   background: whitesmoke;
+  position: relative;
 }
 
 /* Typography */
@@ -197,6 +198,9 @@ main {
 
 /* Payment Form */
 .payment-form {
+  position: absolute;
+  top: 292px;
+  left: 38px;
   width: 524px;
   text-align: center;
   display: flex;
@@ -232,6 +236,7 @@ main {
   background-color: #16db99;
   color: white;
   border: none;
+  cursor: pointer;
 }
 
 .submit-btn:hover {
