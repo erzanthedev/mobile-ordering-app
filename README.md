@@ -79,7 +79,15 @@ This project helped reinforce my understanding of the following **JavaScript con
 
 ## 📸 Project Preview
 
-_(Insert a screenshot or link to the live project here!)_
+<img width="477" alt="image" src="https://github.com/user-attachments/assets/ad29e902-b570-41d4-97f6-545761e0fad3" />
+<img width="477" alt="image" src="https://github.com/user-attachments/assets/8ad722e4-2343-43d6-9a88-3a5354de9ca5" />
+<img width="480" alt="image" src="https://github.com/user-attachments/assets/c4fc065c-11c5-499e-b5b0-2395997fe0b3" />
+<img width="477" alt="image" src="https://github.com/user-attachments/assets/fb01ea9f-5fca-4e36-abad-80f0db332832" />
+
+
+
+
+
 
 ---
 
