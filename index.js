@@ -2,7 +2,7 @@ import menuArray from "./data.js";
 
 const paymentForm = document.getElementById("payment-form");
 
-let ordersArr = [];
+let ordersArr = JSON.parse(localStorage.getItem("orders")) || [];
 let isOrderCompleted = false;
 
 // Utility Functions
@@ -45,6 +45,10 @@ const getCheckoutHtml = () => {
     .join("");
 };
 
+const saveOrdersToStorage = () => {
+  localStorage.setItem("orders", JSON.stringify(ordersArr));
+};
+
 const renderCheckout = () => {
   document.getElementById("checkout").classList.remove("hidden");
   document.getElementById("items-list").innerHTML = getCheckoutHtml();
@@ -60,14 +64,18 @@ const getTotalPrice = () => {
 
 const render = () => {
   document.getElementById("menu").innerHTML += getMealsHtml();
+
+  if (ordersArr.length > 0) {
+    getTotalPrice();
+    renderCheckout();
+  }
 };
 
 // Event Handlers
 const handleAddItemClick = (itemId) => {
-  if (isOrderCompleted && ordersArr.length > 0) {
+  if (isOrderCompleted) {
     document.getElementById("order-success").classList.add("hidden");
     isOrderCompleted = !isOrderCompleted;
-    ordersArr.length = 0;
   }
 
   const targetMeal = menuArray.find(({ id }) => id === Number(itemId));
@@ -80,6 +88,7 @@ const handleAddItemClick = (itemId) => {
     existingOrder.price *= 2;
   }
 
+  saveOrdersToStorage();
   getTotalPrice();
   renderCheckout();
 };
@@ -91,6 +100,7 @@ const handleRemoveClick = (itemId) => {
 
   if (targetMealIndex > -1) {
     ordersArr.splice(targetMealIndex, 1);
+    saveOrdersToStorage();
   }
 
   getTotalPrice();
@@ -114,6 +124,9 @@ const handlePayClick = (e) => {
     <p class="order-success-message">Thanks, ${name}! Your order is on its way!</p>
     `;
   isOrderCompleted = !isOrderCompleted;
+
+  ordersArr = [];
+  saveOrdersToStorage();
 
   orderSuccess.classList.remove("hidden");
   document.getElementById("payment-form").classList.add("hidden");
