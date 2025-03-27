@@ -24,6 +24,18 @@ p {
   color: #fff;
 }
 
+input {
+  border: 1.3px solid #757575;
+  color: #757575;
+  border-radius: 3.89px;
+  border-width: 1.3px;
+  padding: 16px 26px;
+  font-family: Verdana;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 31.12px;
+}
+
 /* Header */
 
 header {
@@ -181,6 +193,53 @@ main {
 
 .complete-order-btn:active {
   transform: translateY(1.5px);
+}
+
+/* Payment Form */
+.payment-form {
+  width: 524px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: white;
+  padding: 29px 23px;
+  border-radius: 3.89px;
+  border: 1.3px solid #757575;
+  box-shadow: 5.19px 5.19px 255.44px 0px #00000080;
+}
+
+.payment-form-title {
+  font-family: Verdana;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.payment-form-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.submit-btn {
+  font-family: Verdana;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 31.12px;
+  letter-spacing: 0%;
+  padding-block: 16px;
+  background-color: #16db99;
+  color: white;
+  border: none;
+}
+
+.submit-btn:hover {
+  filter: brightness(110%);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
 }
 
 /* Utility */

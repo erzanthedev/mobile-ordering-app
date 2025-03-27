@@ -40,34 +40,36 @@
     </main>
     <form id="payment-form" class="payment-form">
       <h4 class="payment-form-title">Enter Details</h4>
-      <input
-        id="fullName"
-        type="text"
-        name="fullName"
-        placeholder="Enter your name"
-        required
-      />
-      <input
-        id="cardNumber"
-        type="text"
-        name="cardNumber"
-        placeholder="Enter card number"
-        inputmode="numeric"
-        required
-        maxlength="16"
-        pattern="\d{13,16}"
-        title="Card number must 13 to 16 digits long, without spaces"
-      />
-      <input
-        id="cardCvv"
-        type="text"
-        name="cardCvv"
-        placeholder="Enter CVV"
-        inputmode="numeric"
-        required
-        maxlength="3"
-        pattern="\d{3}"
-      />
+      <div class="payment-form-details">
+        <input
+          id="fullName"
+          type="text"
+          name="fullName"
+          placeholder="Enter your name"
+          required
+        />
+        <input
+          id="cardNumber"
+          type="text"
+          name="cardNumber"
+          placeholder="Enter card number"
+          inputmode="numeric"
+          required
+          maxlength="16"
+          pattern="\d{13,16}"
+          title="Card number must 13 to 16 digits long, without spaces"
+        />
+        <input
+          id="cardCvv"
+          type="text"
+          name="cardCvv"
+          placeholder="Enter CVV"
+          inputmode="numeric"
+          required
+          maxlength="3"
+          pattern="\d{3}"
+        />
+      </div>
       <button id="submit-btn" class="submit-btn" type="submit">Pay</button>
     </form>
     <script type="module" src="./index.js"></script>
