@@ -88,12 +88,18 @@ const handleRemoveClick = (itemId) => {
   renderCheckout();
 };
 
+const handleCompleteOrderClick = () => {
+  document.getElementById("payment-form").classList.remove("hidden");
+};
+
 // Event Listeners
 document.addEventListener("click", (e) => {
   if (e.target.dataset.addItem) {
     handleAddItemClick(e.target.dataset.addItem);
   } else if (e.target.dataset.remove) {
     handleRemoveClick(e.target.dataset.remove);
+  } else if (e.target.id === "complete-order-btn") {
+    handleCompleteOrderClick();
   }
 });
 
