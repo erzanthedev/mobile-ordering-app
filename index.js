@@ -96,17 +96,18 @@ const handleCompleteOrderClick = () => {
 
 const handlePayClick = (e) => {
   e.preventDefault();
-  document.getElementById("payment-form").classList.add("hidden");
+
+  const paymentFormData = new FormData(paymentForm);
+  const name = paymentFormData.get("fullName");
 
   const checkout = document.getElementById("checkout");
   checkout.innerHTML = `
         <div class="order-success">
-          <p class="order-success-message">Thanks, Your order is on its way!</p>
+          <p class="order-success-message">Thanks, ${name}! Your order is on its way!</p>
         </div>
-`;
+        `;
 
-  const paymentFormData = new FormData(paymentForm);
-  console.log(paymentFormData.get(fullName));
+  document.getElementById("payment-form").classList.add("hidden");
 };
 
 // Event Listeners
