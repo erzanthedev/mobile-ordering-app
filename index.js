@@ -19,7 +19,7 @@ const getMealsHtml = () => {
             <p class="meal-ingredients">${ingredients}</p>
             <span class="meal-price">$${price}</span>
           </div>
-          <button class="add-meal-btn push-right" data-add-item=${id}>
+          <button class="round-btn push-right" data-add-item=${id}>
             +
           </button>
         </div>
@@ -98,7 +98,9 @@ const handleRemoveClick = (itemId) => {
 };
 
 const handleCompleteOrderClick = () => {
-  document.getElementById("payment-form").classList.remove("hidden");
+  if (ordersArr.length > 0) {
+    document.getElementById("payment-form").classList.remove("hidden");
+  }
 };
 
 const handlePayClick = (e) => {
