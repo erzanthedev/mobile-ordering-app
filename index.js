@@ -1,5 +1,7 @@
 import menuArray from "./data.js";
 
+const paymentForm = document.getElementById("payment-form");
+
 let ordersArr = [];
 
 // Utility Functions
@@ -92,6 +94,21 @@ const handleCompleteOrderClick = () => {
   document.getElementById("payment-form").classList.remove("hidden");
 };
 
+const handlePayClick = (e) => {
+  e.preventDefault();
+  document.getElementById("payment-form").classList.add("hidden");
+
+  const checkout = document.getElementById("checkout");
+  checkout.innerHTML = `
+        <div class="order-success">
+          <p class="order-success-message">Thanks, Your order is on its way!</p>
+        </div>
+`;
+
+  const paymentFormData = new FormData(paymentForm);
+  console.log(paymentFormData.get(fullName));
+};
+
 // Event Listeners
 document.addEventListener("click", (e) => {
   if (e.target.dataset.addItem) {
@@ -101,6 +118,10 @@ document.addEventListener("click", (e) => {
   } else if (e.target.id === "complete-order-btn") {
     handleCompleteOrderClick();
   }
+});
+
+paymentForm.addEventListener("submit", (e) => {
+  handlePayClick(e);
 });
 
 render();

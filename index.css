@@ -52,7 +52,7 @@ header {
 }
 
 main {
-  /* height: 1161px; */
+  height: 1161px;
   background-color: white;
   padding: 22px 46px;
 }
@@ -245,6 +245,22 @@ main {
 
 .submit-btn:active {
   transform: translateY(1px);
+}
+
+/* Order Success*/
+.order-success {
+  border-radius: 3px;
+  background-color: #ecfdf5;
+  padding-block: 52px;
+  margin-top: 45px;
+}
+
+.order-success-message {
+  color: #065f46;
+  margin: 0;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 16.8px;
 }
 
 /* Utility */
