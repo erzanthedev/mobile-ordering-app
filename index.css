@@ -253,6 +253,7 @@ main {
   background-color: #ecfdf5;
   padding-block: 52px;
   margin-top: 45px;
+  text-align: center;
 }
 
 .order-success-message {
