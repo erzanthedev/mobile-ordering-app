@@ -122,6 +122,12 @@ const handlePayClick = (e) => {
   paymentForm.reset();
 };
 
+const handleCloseBtnClick = () => {
+  if (!isOrderCompleted) {
+    paymentForm.classList.add("hidden");
+  }
+};
+
 // Event Listeners
 document.addEventListener("click", (e) => {
   if (e.target.dataset.addItem) {
@@ -130,6 +136,8 @@ document.addEventListener("click", (e) => {
     handleRemoveClick(e.target.dataset.remove);
   } else if (e.target.id === "complete-order-btn") {
     handleCompleteOrderClick();
+  } else if (e.target.id === "close-btn") {
+    handleCloseBtnClick();
   }
 });
 
