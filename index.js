@@ -3,6 +3,7 @@ import menuArray from "./data.js";
 const paymentForm = document.getElementById("payment-form");
 
 let ordersArr = [];
+let isOrderCompleted = false;
 
 // Utility Functions
 const getMealsHtml = () => {
@@ -63,6 +64,12 @@ const render = () => {
 
 // Event Handlers
 const handleAddItemClick = (itemId) => {
+  if (isOrderCompleted && ordersArr.length > 0) {
+    document.getElementById("order-success").classList.add("hidden");
+    isOrderCompleted = !isOrderCompleted;
+    ordersArr.length = 0;
+  }
+
   const targetMeal = menuArray.find(({ id }) => id === Number(itemId));
 
   const existingOrder = ordersArr.find(({ id }) => id === targetMeal.id);
@@ -104,8 +111,9 @@ const handlePayClick = (e) => {
   orderSuccess.innerHTML = `
     <p class="order-success-message">Thanks, ${name}! Your order is on its way!</p>
     `;
-  orderSuccess.classList.remove("hidden");
+  isOrderCompleted = !isOrderCompleted;
 
+  orderSuccess.classList.remove("hidden");
   document.getElementById("payment-form").classList.add("hidden");
   document.getElementById("checkout").classList.add("hidden");
 
